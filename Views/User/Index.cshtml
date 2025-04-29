@@ -1,0 +1,50 @@
+﻿@model List<User>
+
+<h2>Kullanıcı Listesi</h2>
+<br />
+<a href="/User/Create" class="btn btn-primary">Kullanıcı Ekle</a>
+<table class="table">
+	<thead>
+		<tr>
+			<td>Kullanıcı ID</td>     <!--Html.DisplayNameFor(m => m.UserName)-->
+			<td>Kullanıcı Adı</td>
+			<td>Kullanıcı Soyadı</td>
+			<td></td>
+			<td></td>
+
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var user in Model)
+		{
+			<tr>
+				<td>@user.UserId</td>  <!-- Burada Displayde olutyorö-->
+			<td>	
+				<a asp-controller="User" asp-action="Details" asp-route-id="@user.UserId" class="text-primary text-decoration-none table-hover">
+					@user.UserName
+					</a>
+				</td>
+				<td>@user.UserSurname</td>
+				<td>
+					<a asp-controller="User" asp-action="Edit" asp-route-id="@user.UserId" class="btn btn-sm btn-danger">Düzenle</a>
+					<a asp-controller="User" asp-action="Delete" asp-route-id="@user.UserId" class="btn btn-sm btn-danger">Sil</a>
+
+				</td>
+				<td><a asp-controller="Book" asp-action="Create" asp-route-id="@user.UserId" class="btn btn-sm btn-danger">Kitap Ekle</a></td>
+
+			</tr>
+
+		}
+
+	</tbody>
+
+
+</table>
+
+
+
+
+
+
+
+

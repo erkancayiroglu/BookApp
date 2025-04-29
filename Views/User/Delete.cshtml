@@ -1,0 +1,28 @@
+﻿@model User
+
+<div class="container d-flex justify-content-center">
+    <div class="card mt-0" style="width: 18rem;">
+        <div class="card-body text-center">
+            <h5 class="card-title">Uyarı Mesajı</h5>
+            <p class="card-text">
+                @Model.UserName    isimli Kullanıcıyı ve Kitaplarını silmek istiyor musunuz?
+            </p>
+            <form asp-action="Delete" method="post">
+                <input type="hidden" value="@Model.UserId" name="UserId" />
+                <button class="btn btn-danger" type="submit">Evet</button>
+                <a asp-action="Index" class="btn btn-primary">Hayır</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+	
+
+
+
+
+
+
+	
+
+

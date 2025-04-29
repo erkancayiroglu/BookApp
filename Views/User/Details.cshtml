@@ -1,0 +1,32 @@
+﻿@model User
+
+<h2>Kitap Listesi</h2>
+<br />
+<a href="/Book/Create" class="btn btn-primary">Kitap Ekle</a>
+
+<table class="table mt-3 table-striped table-bordered table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th scope="col">Kitap ID</th>
+            <th scope="col">Kitap Adı</th>
+            <th scope="col">Yazar Adı</th>
+         
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model?.Books) // Eğer null ise boş liste döndür
+        {
+            <tr>
+                <td>@book.BookId</td>
+                <td>
+                    <a asp-controller="Book" asp-action="Details" asp-route-id="@book.BookId" class="text-primary text-decoration-none table-hover">
+                        @book.BookName
+                    </a>
+                </td>
+                <td>@book.AuthorName</td>
+       
+
+            </tr>
+        }
+    </tbody>
+</table>

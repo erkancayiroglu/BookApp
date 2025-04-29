@@ -1,0 +1,31 @@
+﻿@model Book
+
+<div class="card">
+    <div class="card-header">
+        <h3>Kitap Detayı: @Model.BookName</h3>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">Kitap Adı</dt>
+            <dd class="col-sm-9">@Model.BookName</dd>
+
+            <dt class="col-sm-3">Yazar Adı</dt>
+            <dd class="col-sm-9">@Model.AuthorName</dd>
+
+            <dt class="col-sm-3">Yayın Adı</dt>
+            <dd class="col-sm-9">@Model.PublisherName</dd>
+
+            <dt class="col-sm-3">Yayın Yılı</dt>
+            <dd class="col-sm-9">@Model.PublisherYear</dd>
+
+            <dt class="col-sm-3">Kullanıcı Adı</dt>
+            <dd class="col-sm-9">@Model.Users?.UserAd</dd> <!-- Kullanıcı adı olabilir, null kontrolü yapılır -->
+        </dl>
+
+        <div class="btn-group">
+            <a href="/Book/Edit/@Model.BookId" class="btn btn-warning">Kitap Düzenle</a>
+            <a href="/Book/Delete/@Model.BookId" class="btn btn-danger">Kitap Sil</a>
+            <a href="/Book/Index" class="btn btn-secondary">Geri Dön</a>
+        </div>
+    </div>
+</div>

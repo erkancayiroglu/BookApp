@@ -1,0 +1,19 @@
+﻿@model Book
+
+<p>
+
+	<b>@Model.BookName </b> isimli  Kitapını silmek istiyor musun.
+
+
+	<form asp-action="Delete" method="post">
+		<input type="hidden" value="@Model.BookId" name="BookId" /><!--Aynı olacak metodla-->
+
+		<button class="btn btn-danger" type="submit">Evet</button>
+		<a asp-action="Index" class="btn btn-primary">Hayır</a>
+
+
+	</form>
+
+
+
+</p>

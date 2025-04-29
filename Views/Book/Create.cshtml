@@ -1,0 +1,52 @@
+﻿@model BookViewModel
+<h2>Kitap Ekle</h2>
+<br />
+
+<form asp-controller="Book" asp-action="Create" method="post">
+	
+
+	@if (Model?.UserId == null)
+	{
+		<div class="mb-3">
+			<label asp-for="UserId" class="form-label">Kullanıcılar</label>
+			<select asp-for="UserId" asp-items="@ViewBag.Users" class="form-select">
+				<option value="">Seçiniz</option>
+			</select>
+			<span asp-validation-for="UserId" class="text-danger"></span>
+		</div>
+	}
+	else
+	{
+		<input type="hidden" asp-for="UserId" />
+	}
+		
+
+		
+	<div class="mb-3">
+		<label asp-for="BookName" class="form-label">Kitap Adı</label>
+		<input asp-for="BookName" class="form-control">
+		<span asp-validation-for="BookName" class="text-danger"></span>
+
+
+	</div>
+	<div class="mb-3">
+		<label asp-for="AuthorName" class="form-label">Yazar Adı</label>
+		<input asp-for="AuthorName" class="form-control">
+		<span asp-validation-for="AuthorName" class="text-danger"></span>
+	</div>
+	<div class="mb-3">
+		<label asp-for="PublisherName" class="form-label">Yayın Adı</label>
+		<input asp-for="PublisherName" class="form-control">
+		<span asp-validation-for="PublisherName" class="text-danger"></span>
+	</div>
+	<div class="mb-3">
+		<label asp-for="PublisherYear" class="form-label">Yayın yılı</label>
+		<input asp-for="PublisherYear" class="form-control">
+		<span asp-validation-for="PublisherYear" class="text-danger"></span>
+	
+	</div>
+	
+
+	<button class="btn btn-primary" type="submit">Kaydet</button>
+
+</form>

@@ -1,0 +1,59 @@
+﻿@model List<Book>
+
+<h1>Yazar Filtrele</h1>
+
+<div class="card card-body my-3">
+	<form asp-action="Index" method="get">
+
+
+		<div class="container">
+			<div class="row">
+
+				<div class="col-md-11">
+					<select class="form-select" name="author" asp-items="ViewBag.Books" >
+						<option value="0">Hepsi</option>
+					</select>
+
+				</div>
+				<div class="col-md-1">
+					<button type="submit" class="btn btn-primary">Filtrele</button>
+				</div>
+			</div>
+		</div>
+	
+	
+	
+	</form>
+</div>
+
+
+
+
+<h2>Kitap Listesi</h2>
+<br />
+<a href="/Book/Create" class="btn btn-primary">Kitap Ekle</a>
+<table class="table mt-3 table-striped table-bordered table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th scope="col">Kitap ID</th>
+            <th scope="col">Kitap Adı</th>
+            <th scope="col">Yazar Adı</th>
+            <th scope="col">Kullanıcı Adı</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model)
+        {
+            <tr>
+                <td >@book.BookId</td>
+                <td>
+                    <a asp-controller="Book" asp-action="Details" asp-route-id="@book.BookId" class="text-primary text-decoration-none table-hover">
+                        @book.BookName
+                    </a>
+                </td>
+                <td>@book.AuthorName</td>
+                <td>@book.Users.UserAd</td>
+            </tr>
+        }
+    </tbody>
+</table>
